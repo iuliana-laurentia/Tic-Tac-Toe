@@ -17,7 +17,6 @@ def input_data():
         return (x,y)
 
 
-
 def validation(x, y):
 
     if not (x.isdigit()==True and y.isdigit()==True):
@@ -50,12 +49,7 @@ def check_winner(player,board):
     if board[0][0]==board[1][1]==board[2][2]== player or board[2][0]==board[1][1]==board[0][2]== player:
         return True
 
-
     return False
-
-
-
-
 
 
 def loop():
