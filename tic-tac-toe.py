@@ -29,6 +29,9 @@ def validation(x, y):
     elif int(x)<0 or int(y)<0:
         return False
 
+    elif board[int(x)][int(y)]!='_':
+        return False
+
     else:
         return True
 
@@ -53,27 +56,25 @@ def check_winner(player,board):
 
 
 def loop():
+    player='x'
     while True:
+        print_board()
+        print('It is', player,'turn')
+        x, y = input_data()
+        is_valid =validation(x,y)
 
-            x, y = input_data()
-            is_valid =validation(x,y)
-
-            if  is_valid==True:
-                if player == 'o':
-                    player = 'x'
-                else:
-                    player = 'o'
-                board[int(x)][int(y)] = player
+        if  is_valid==True:
+            board[int(x)][int(y)] = player
+            winner_check = check_winner(player, board)
+            if winner_check == True:
+                print(player, 'is winner')
+                return
+            if player == 'o':
+                player = 'x'
             else:
-                print('Please input valid data!')
-
-            print_board()
-            if is_valid == True:
-                winner_check=check_winner(player,board)
-                if winner_check==True:
-                    print(player,'is winner')
-                    return
-
+                player = 'o'
+        else:
+            print('Please input valid data!')
 
 
 
