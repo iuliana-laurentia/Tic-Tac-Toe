@@ -2,7 +2,6 @@ board=[["_","_","_"],
        ["_", "_", "_"],
        ["_","_","_"]]
 
-print("Prans was here :P")
 
 def print_board():
     for line in board:
